@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Registro de Empresas</title>
+	<!-- AngularJS Resource -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+	<!-- Script APIREST Resource -->
+	<script src="../scripts/script.js"></script>
+	<!-- Jquery Resource -->
+	<script src="../recursos/jquery-3.1.1.min.js"></script>
+	<!-- Bootstrap Resource -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- css style Resource -->
+	<link rel="stylesheet" type="text/css" href="../estilos/style.css">
+	<!-- Website Font style -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<!-- Google Fonts -->
+	<script src="https://use.fontawesome.com/710c906195.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <!-- bootstrap ui - AngularJS  -->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+    <!-- Prueba-->
+    <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+
+</head>
+<body ng-controller="employessController">
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">			
+	            <div class="panel-title text-center">
+	               	<h1 class="title"><img src="mh_logo.png"  style="width: 300px"></h1>
+	               	<h1 class="title">Módulo de Registro - Factura Digital</h1>	               	
+	               	<h2 class="title">Nuevo Usuario</h2>
+	              	<hr/>	             
+	            </div>	            
+	        </div>
+	        <div class="panel-headinge">
+	        	
+	        </div>
+	        <div class="main-login main-center">
+	        	<form class="form-horizontal" name="regEmp" ng-submit="registrar()">
+
+	        	<div class="form-group">
+							<label for="name" class="cols-sm-1 control-label">Cédula (Residencia o Persona Jurídica )</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Digita el numero de cédula" ng-model ="datosEmpleado.cedula" focus/>
+								</div>
+							</div>
+					</div>
+
+	        		<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Nombre</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Escribe tu nombre" ng-model ="datosEmpleado.nombre" focus/>
+								</div>
+							</div>
+					</div>
+
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Primer Apellido</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Escribe tu primer apellido" ng-model ="datosEmpleado.primApe" focus/>
+								</div>
+							</div>
+					</div>
+
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Segundo Apellido</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Escribe tu segundo apellido" ng-model ="datosEmpleado.segApe" focus/>
+								</div>
+							</div>
+					</div>
+
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Dirección</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Digita su dirección" ng-model ="datosEmpleado.direcciones" focus/>
+								</div>
+							</div>
+					</div>
+
+
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Correo Electronico</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" name="txtEmail" id="txtEmail"  placeholder="Digita el correo electronico" ng-model ="datosEmpleado.correo" required focus/>
+								</div>
+							</div>
+							<div role="alert" >
+     							<span class="alert alert-danger" class="error" ng-show="regEmp.txtEmail.$error.required">Complete este campo!</span>
+      							<span class="alert alert-danger" class="error" ng-show="regEmp.txtEmail.$error.email">Correo electronico no valido!</span>
+    						</div>
+    				</div>
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Telefono</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Digita su numero de telefono" ng-model ="datosEmpleado.telefono" focus/>
+								</div>
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Inicio de Actividades</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+								<input type="date" name="bday" ng-model = "datosEmpleado.fechaInicio" class="form-control"><br>								
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Fin de Actividades</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+								<input type="date" name="bday" ng-model = "datosEmpleado.fechaFin" class="form-control"><br>	
+								</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="name" id="name"  placeholder="Digita su password" ng-model ="datosEmpleado.pass" focus/>
+								</div>
+							</div>
+					</div>
+
+					<div class="form-group ">
+							<button  class="btn btn-primary btn-lg btn-block login-button" id="btn" name="btn">Registrar</button>
+					</div>															
+	        	</form>
+	        </div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+Ejecutar los scripts en el orden de:
+
+Persona
+Registro
+FechaActidades
+Login
+Keys
